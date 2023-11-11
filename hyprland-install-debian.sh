@@ -65,8 +65,7 @@ xwayland
 git clone https://gitlab.freedesktop.org/xorg/lib/libxcb-errors && cd libxcb-errors
 git submodule update --init
 bash autogen.sh
-make
-sudo make install
+make && sudo make install
 sudo ldconfig
 
 # install hyprland
