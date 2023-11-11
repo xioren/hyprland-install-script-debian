@@ -70,8 +70,7 @@ cd ..
 
 # install hyprland
 wget https://github.com/hyprwm/Hyprland/releases/download/v$HYPRLAND_VERSION/v$HYPRLAND_VERSION.tar.gz
-tar -xf v$HYPRLAND_VERSION.tar.gz
-cd hyprland/
+tar -xf v$HYPRLAND_VERSION.tar.gz && cd hyprland/
 sudo mv hyprctl Hyprland /usr/bin/
 sudo mv libwlroots.so.* /usr/lib/
 sudo mkdir -p /usr/share/wayland-sessions/
