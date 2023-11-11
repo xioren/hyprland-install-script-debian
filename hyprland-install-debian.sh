@@ -7,9 +7,6 @@ CONFIG_PATH=~/.config/hypr/
 
 # initial setup
 mkdir hyprland-tmp && cd hyprland-tmp
-sudo apt install wget git
-wget https://github.com/hyprwm/Hyprland/releases/download/v$HYPRLAND_VERSION/v$HYPRLAND_VERSION.tar.gz
-tar -xf v$HYPRLAND_VERSION.tar.gz
 
 
 # install dependencies
@@ -19,6 +16,7 @@ build-essential \
 fontconfig \
 gettext \
 gettext-base \
+git \
 glslang-tools \
 kitty \
 libavcodec-dev \
@@ -55,6 +53,7 @@ libxkbcommon-dev \
 libxml2-dev \
 make \
 seatd \
+wget \
 xcb-proto \
 xdg-desktop-portal-wlr \
 xutils-dev \
@@ -67,14 +66,17 @@ git submodule update --init
 bash autogen.sh
 make && sudo make install
 sudo ldconfig
+cd ..
 
 # install hyprland
-cd ../hyprland/
+wget https://github.com/hyprwm/Hyprland/releases/download/v$HYPRLAND_VERSION/v$HYPRLAND_VERSION.tar.gz
+tar -xf v$HYPRLAND_VERSION.tar.gz
+cd hyprland/
 sudo mv hyprctl Hyprland /usr/bin/
 sudo mv libwlroots.so.* /usr/lib/
 sudo mkdir -p /usr/share/wayland-sessions/
 sudo mv example/hyprland.desktop /usr/share/wayland-sessions/
 mkdir -p $CONFIG_PATH && mv example/hyprland.conf $CONFIG_PATH
 
-
+# remove temp dir?
 echo "hyprland installed"
