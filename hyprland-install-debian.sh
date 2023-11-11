@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-HYPRLAND_VERSION = "0.27.0"
-CONFIG_PATH = ~/.config/hypr/
+HYPRLAND_VERSION="0.27.0"
+CONFIG_PATH=~/.config/hypr/
 
 
 # initial setup
-mkdir hyprland && cd hyprland
+mkdir hyprland-tmp && cd hyprland-tmp
 sudo apt install wget git
 wget https://github.com/hyprwm/Hyprland/releases/download/v$HYPRLAND_VERSION/v$HYPRLAND_VERSION.tar.gz
 tar -xf v$HYPRLAND_VERSION.tar.gz
@@ -69,11 +69,11 @@ make
 sudo make install
 sudo ldconfig
 
-
 # install hyprland
-cd hyprland
+cd ../hyprland/
 sudo mv hyprctl Hyprland /usr/bin/
-sudo mv libwlroots.so.XX032 /usr/lib/
+sudo mv libwlroots.so.* /usr/lib/
+sudo mkdir -p /usr/share/wayland-sessions/
 sudo mv example/hyprland.desktop /usr/share/wayland-sessions/
 mkdir -p $CONFIG_PATH && mv example/hyprland.conf $CONFIG_PATH
 
