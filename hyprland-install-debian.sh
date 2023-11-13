@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 
 HYPRLAND_VERSION="0.27.0"
 CONFIG_PATH=~/.config/hypr/
@@ -75,7 +76,8 @@ sudo mv hyprctl Hyprland /usr/bin/
 sudo mv libwlroots.so.* /usr/lib/
 sudo mkdir -p /usr/share/wayland-sessions/
 sudo mv example/hyprland.desktop /usr/share/wayland-sessions/
-mkdir -p $CONFIG_PATH && mv example/hyprland.conf $CONFIG_PATH
+mkdir -p $CONFIG_PATH
+mv example/hyprland.conf $CONFIG_PATH
 
 # remove temp dir?
 echo "hyprland installed"
