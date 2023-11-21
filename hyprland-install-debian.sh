@@ -54,7 +54,6 @@ libxkbregistry-dev \
 libxkbcommon-dev \
 libxml2-dev \
 make \
-polkit-kde-agent-1 \
 seatd \
 qtwayland5 \
 qt6-wayland \
@@ -107,9 +106,20 @@ mkdir -p $CONFIG_PATH
 mv example/hyprland.conf $CONFIG_PATH
 
 
+# install polkit agent
+echo "install polkit agent?"
+echo "1: policykit-1-gnome"
+echo "2: polkit-kde-agent-1"
+read -p "(1 or 2): " choice
+if [ "$choice" == "1" ]; then
+        sudo apt install -y policykit-1-gnome
+elif [ "$choice" == "2" ]; then
+        sudo apt install -y polkit-kde-agent-1
+fi
+
+
 # install extras
 # TODO: add more options
-
 echo "install utilities?"
 echo "1: all"
 echo "2: choose"
@@ -167,5 +177,5 @@ elif  [ "$choice" == "2" ]; then
 fi
 
 
-# remove temp dir?
+cd .. && sudo rm -r hyprland-tmp
 echo "installation complete"
