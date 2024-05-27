@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # install deps
+# hyprlang >= 0.4.2
 sudo apt install -y \
-# hyprlang >= 0.4.2 \
 libcairo2-dev \
 librsvg2-dev \
 libtomlplusplus-dev \
