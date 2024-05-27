@@ -15,7 +15,7 @@ wayland-protocols
 
 
 # hyprland-protocols
-./hyprland-protocols.sh
+# ./hyprland-protocols.sh
 
 # get
 git clone --recursive https://github.com/hyprwm/xdg-desktop-portal-hyprland.git && cd xdg-desktop-portal-hyprland
