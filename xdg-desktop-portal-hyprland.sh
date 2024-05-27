@@ -2,14 +2,15 @@
 
 
 # install deps
-sudo apt install -y \
 # hyprlang
+sudo apt install -y \
 libdrm-dev \
 libgbm-dev \
 libpipewire-0.3-dev \
 libsdbus-c++-dev \
 libspa-0.2-dev \
 libwayland-client0 \
+qt6-base-dev \
 wayland-protocols
 
 
