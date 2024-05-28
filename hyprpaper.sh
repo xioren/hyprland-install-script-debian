@@ -9,6 +9,7 @@ libglvnd-dev \
 libglvnd-core-dev \
 libjpeg-dev \
 libjpeg62-turbo-dev \
+libmagic-dev \
 libpam0g-dev \
 libpango1.0-dev \
 libwayland-dev \
