@@ -5,7 +5,6 @@ set -e
 # initial setup
 mkdir hyprland-tmp && cd hyprland-tmp
 
-
 # install dependenciesn
 echo "installing deps"
 sudo apt update && sudo apt install -y \
@@ -66,7 +65,14 @@ xwayland
 
 # build and install libxcb-errors
 echo "installing libxcb-errors"
-./libxcb-errors.sh
+../libxcb-errors.sh
+# install hyprland
+echo "installing hyprland"
+../hyprland.sh
+echo "installing hyprlang"
+../hyprlang.sh
+echo "installing hyprcursor"
+../hyprcursor.sh
 
 
 # select xdg-desktop backend
@@ -84,16 +90,6 @@ else
         echo "invalid choice"
         exit 1
 fi
-
-
-# install hyprland
-echo "installing hyprland"
-./hyprland.sh
-echo "installing hyprlang"
-./hyprlang.sh
-echo "installing hyprcursor"
-./hyprcursor.sh
-
 
 # install polkit agent
 echo "install polkit agent?"
@@ -121,13 +117,13 @@ if [ "$choice" == "1" ]; then
         mako-notifier \
         waybar
         echo "installing hypridle"
-        ./hypridle.sh
+        ../hypridle.sh
         echo "installing hyprlock"
-        ./hyprlock.sh
+        ../hyprlock.sh
         echo "installing hyprpaper"
-        ./hyprpaper.sh
+        ../hyprpaper.sh
         echo "installing rofi"
-        ./rofi-wayland.sh
+        ../rofi-wayland.sh
 elif  [ "$choice" == "2" ]; then
         # choose
 
@@ -136,7 +132,7 @@ elif  [ "$choice" == "2" ]; then
         read -p "(y or n): " choice
 
         if [ "$choice" == "y" ]; then
-                ./hypridle.sh
+                ../hypridle.sh
         fi
 
         # hyprlock
@@ -144,7 +140,7 @@ elif  [ "$choice" == "2" ]; then
         read -p "(y or n): " choice
 
         if [ "$choice" == "y" ]; then
-                ./hyprlock.sh
+                ../hyprlock.sh
         fi
 
         # hyprpaper 
@@ -152,7 +148,7 @@ elif  [ "$choice" == "2" ]; then
         read -p "(y or n): " choice
 
         if [ "$choice" == "y" ]; then
-                ./hyprpaper.sh
+                ../hyprpaper.sh
         fi
 
         # mako
@@ -168,7 +164,7 @@ elif  [ "$choice" == "2" ]; then
         read -p "(y or n): " choice
 
         if [ "$choice" == "y" ]; then
-                ./rofi-wayland.sh
+                ../rofi-wayland.sh
         fi
 
         # waybar
