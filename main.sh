@@ -62,6 +62,8 @@ xcb-proto \
 xutils-dev \
 xwayland
 
+# install fonts
+../fonts.sh
 
 # build and install libxcb-errors
 echo "installing libxcb-errors"
